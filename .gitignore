@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+
+venv/
+env/
+felholabor/
+
+db.sqlite3
+
+media/
+
+.vscode/
+
+staticfiles/

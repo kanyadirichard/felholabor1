@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %} <div class="card shadow-lg mt-4"> <div class="card-header d-flex justify-content-between align-items-center">
+        <h3 class="mb-0">{{ photo.title }}</h3>
+        <a href="{% url 'photo_list' %}" class="btn btn-outline-secondary">Vissza a listához</a>
+    </div>
+    
+    <div class="card-body text-center">
+        {% if photo.image %}
+            <img src="{{ photo.image.url }}" class="img-fluid rounded" alt="{{ photo.title }}" style="max-height: 80vh;">
+        {% endif %}
+    </div>
+    
+    <div class="card-footer text-muted">
+        <div class="row">
+            <div class="col-md-6">
+                <strong>Feltöltötte:</strong> {{ photo.owner.username }}
+            </div>
+            <div class="col-md-6 text-end">
+                <strong>Dátum:</strong> {{ photo.uploaded_at|date:"Y. m. d. H:i" }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'photo_list' %}">📸 Fotóalbum</a>
+            
+            <div class="d-flex align-items-center">
+                {% if user.is_authenticated %}
+                    <span class="navbar-text me-3 text-white">
+                        Szia, <b>{{ user.username }}</b>!
+                    </span>
+                    <a href="{% url 'photo_upload' %}" class="btn btn-primary btn-sm me-2">Új kép feltöltése</a>
+                    
+                    <form action="{% url 'logout' %}" method="post" class="m-0">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-danger btn-sm">Kilépés</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-outline-light btn-sm me-2">Belépés</a>
+                    <a href="{% url 'signup' %}" class="btn btn-warning btn-sm">Regisztráció</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
