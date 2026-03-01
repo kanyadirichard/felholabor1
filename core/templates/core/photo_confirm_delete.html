@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card border-danger shadow">
+            <div class="card-header bg-danger text-white">
+                <h3 class="mb-0">Kép törlése</h3>
+            </div>
+            <div class="card-body">
+                <p>Biztosan törölni szeretnéd a következőt: <strong>{{ object.title }}</strong>?</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Igen, törlöm</button>
+                    <a href="{% url 'photo_detail' object.pk %}" class="btn btn-secondary">Mégse</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

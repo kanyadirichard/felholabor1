@@ -1,5 +1,5 @@
-from django.views.generic import ListView, CreateView, DetailView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView, CreateView, DetailView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
@@ -45,3 +45,12 @@ class PhotoListView(ListView):
 class CustomLoginView(LoginView):
     form_class = UserLoginForm
     template_name = 'registration/login.html'
+    
+class PhotoDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Photo
+    template_name = 'core/photo_confirm_delete.html'
+    success_url = '/'
+
+    def test_func(self):
+        photo = self.get_object()
+        return self.request.user == photo.owner
