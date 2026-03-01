@@ -4,6 +4,7 @@ __pycache__/
 venv/
 env/
 felholabor/
+.env/
 
 db.sqlite3
 
