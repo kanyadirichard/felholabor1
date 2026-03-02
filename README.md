@@ -5,7 +5,7 @@ Ez a projekt a "Fényképalbum létrehozása" feladat végleges, skálázható �
 ## 1. Választott környezet és technológiák
 * **Nyelv / Keretrendszer:** Python és Django
 * **Frontend:** Django Templates + Bootstrap
-* **PaaS Szolgáltató:** Render.com (automatikus CI/CD pipeline a GitHub repóból).
+* **PaaS Szolgáltató:** Render.com (automatikus CI/CD pipeline a GitHub repositoryból).
 
 ## 2. Architektúra és Rétegek (Többrétegű modell)
 A rendszer a modern webfejlesztési elveknek megfelelően három elkülönült rétegből áll:
