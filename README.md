@@ -5,7 +5,7 @@ Ez a projekt a "Fényképalbum létrehozása" feladat végleges, skálázható �
 ## 1. Választott környezet és technológiák
 * **Nyelv / Keretrendszer:** Python és Django
 * **Frontend:** Django Templates + Bootstrap
-* **PaaS Szolgáltató:** Render.com (automatikus CI/CD pipeline a GitHub repóból).
+* **PaaS Szolgáltató:** Render.com (automatikus CI/CD pipeline a GitHub repositoryból).
 
 ## 2. Architektúra és Rétegek (Többrétegű modell)
 A rendszer a modern webfejlesztési elveknek megfelelően három elkülönült rétegből áll:
@@ -17,3 +17,5 @@ A rendszer a modern webfejlesztési elveknek megfelelően három elkülönült r
 ## 3. Kapcsolatok működése
 * Git Push -> GitHub (Webhook) -> Render (Build & Deploy automatikusan).
 * A felhasználó feltölt egy képet -> A Django a memóriában feldolgozza -> A képet elküldi a Cloudinary API-n keresztül a tárhelyre -> A Cloudinary visszaküldi a publikus URL-t -> A Django ezt az URL-t és a metaadatokat elmenti a PostgreSQL adatbázisba.
+
+Az alkalmazás a következő linken kereszül elérhető: https://felholabor1.onrender.com/ 
